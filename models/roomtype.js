@@ -11,6 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      models.RoomType.hasMany(models.Room, {});
     }
   }
   RoomType.init({
@@ -18,6 +19,8 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'RoomType',
+    tableName: 'room_types',
+    timestamps: false
   });
   return RoomType;
 };

@@ -11,6 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      models.BusinessType.hasMany(models.Guest, {});
     }
   }
   DniType.init({
@@ -18,6 +19,8 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'DniType',
+    tableName: "dni_types",
+    timestamps: false,
   });
   return DniType;
 };

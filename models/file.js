@@ -11,17 +11,25 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      models.File.belongsTo(models.Building, { 
+        foreignKey: 'entityId', 
+        constraints: false 
+      });
+      models.File.belongsTo(models.Room, { 
+        foreignKey: 'entityId', 
+        constraints: false 
+      });
     }
   }
   File.init({
-    code: DataTypes.STRING,
-    name: DataTypes.STRING,
-    address: DataTypes.STRING,
-    people: DataTypes.INTEGER,
-    status: DataTypes.BOOLEAN
+    url: DataTypes.STRING,
+    entityId: DataTypes.INTEGER,
+    entityName: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'File',
+    tableName: "dni_types",
+    timestamps: false,
   });
   return File;
 };

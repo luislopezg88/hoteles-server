@@ -11,17 +11,34 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      models.Guest.belongsTo(models.DniType, {});
+      models.Guest.belongsToMany(models.Booking, { 
+        through: 'BookingGuest', 
+        foreignKey: 'guestId',
+        as: 'bookings' 
+      });
     }
   }
   Guest.init({
-    code: DataTypes.STRING,
-    name: DataTypes.STRING,
-    address: DataTypes.STRING,
-    people: DataTypes.INTEGER,
-    status: DataTypes.BOOLEAN
+    fullNames: DataTypes.STRING,
+    dni: DataTypes.STRING,
+    dniTypeId: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'DniType', 
+        key: 'id'
+      }
+    },
+    email: DataTypes.STRING,
+    contactNumber: DataTypes.STRING,
+    birthdate: DataTypes.STRING,
+    gender: DataTypes.STRING,
+    isMain: DataTypes.BOOLEAN
   }, {
     sequelize,
     modelName: 'Guest',
+    tableName: "guests",
+    timestamps: false,
   });
   return Guest;
 };
