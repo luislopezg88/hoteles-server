@@ -1,14 +1,26 @@
-var express = require('express');
+require("dotenv").config();
+const express = require("express");
+const cors = require("cors");
+const app = express();
+const http = require("http");
+const server = http.createServer(app);
 
-var app = express();
+const PORT = process.env.PORT || 3000;
+const cookieParser = require("cookie-parser");
 
-app.get('/', (req, res, next) => {
-    res.status(200).json({
-        ok: true,
-        mensaje: 'Peticion realizada correctamente'
-    })
-})
+app.use(cookieParser());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use("/api/static", express.static(__dirname + "/public"));
 
-app.listen(5000, () => {
-    console.log('Express server corriendo en el puerto 5000: \x1b[32m%s\x1b[0m', ' Online')
-})
+const corsOptions = {
+  origin: "*",
+  optionsSuccessStatus: 200, // For legacy browser support
+};
+app.use(cors(corsOptions));
+
+require("./routes/buidings.routes")(app);
+
+server.listen(PORT, function () {
+  console.log(`App listening on port ${PORT}!`);
+});
