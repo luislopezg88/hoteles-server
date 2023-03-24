@@ -5,28 +5,32 @@
 module.exports = {
   up: (queryInterface, DataTypes) => Promise.resolve()
   .then(() => queryInterface.addConstraint('rooms', {
-    type: 'foreign_key',
     fields: ['roomTypeId'],
+    type: 'foreign key',
     name: 'room_types_room',
     references: {
       table: 'room_types',
       field: 'id'
-    }
+    },
+    onDelete: 'cascade',
+    onUpdate: 'cascade'
   }))
   .then(() => queryInterface.addConstraint('rooms', {
-    type: 'foreign_key',
     fields: ['buildingId'],
+    type: 'foreign key',
     name: 'building_room',
     references: {
       table: 'buildings',
       field: 'id'
-    }
+    },
+    onDelete: 'cascade',
+    onUpdate: 'cascade'
   })),
 
   down: (queryInterface, Sequelize) => Promise.resolve()
   .then(() => queryInterface.removeConstraint('rooms', {
-    type: 'foreign_key',
     fields: ['roomTypeId'],
+    type: 'foreign key',
     name: 'room_types_room',
     references: {
       table: 'room_types',
@@ -34,8 +38,8 @@ module.exports = {
     }
   }))
   .then(() => queryInterface.removeConstraint('rooms', {
-    type: 'foreign_key',
     fields: ['buildingId'],
+    type: 'foreign key',
     name: 'building_room',
     references: {
       table: 'buildings',
