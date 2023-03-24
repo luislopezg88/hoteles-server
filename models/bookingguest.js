@@ -17,12 +17,12 @@ module.exports = (sequelize, DataTypes) => {
   }
   BookingGuest.init({
     bookingId: {
-      type: Sequelize.INTEGER,
+      type: DataTypes.INTEGER,
       model: 'Booking',
       key: 'id'
     },
     guestId: {
-      type: Sequelize.INTEGER,
+      type: DataTypes.INTEGER,
       model: 'Guest',
       key: 'id'
     },

@@ -19,7 +19,7 @@ const corsOptions = {
 };
 app.use(cors(corsOptions));
 
-require("./routes/buidings.routes")(app);
+require("./routes/buildings.routes")(app);
 
 server.listen(PORT, function () {
   console.log(`App listening on port ${PORT}!`);
