@@ -11,25 +11,9 @@ module.exports = {
       },
       bookingId: {
         type: Sequelize.INTEGER,
-        references: {
-          model: {
-            tableName: 'bookings',
-            schema: 'schema'
-          },
-          key: 'id'
-        },
-        allowNull: false
       },
       guestId: {
         type: Sequelize.INTEGER,
-        references: {
-          model: {
-            tableName: 'guests',
-            schema: 'schema'
-          },
-          key: 'id'
-        },
-        allowNull: false
       }
     });
   },

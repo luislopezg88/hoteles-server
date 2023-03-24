@@ -30,25 +30,9 @@ module.exports = {
       },
       roomTypeId: {
         type: Sequelize.INTEGER,
-        references: {
-          model: {
-            tableName: 'room_types',
-            schema: 'schema'
-          },
-          key: 'id'
-        },
-        allowNull: false
       },
       buildingId: {
         type: Sequelize.INTEGER,
-        references: {
-          model: {
-            tableName: 'buildings',
-            schema: 'schema'
-          },
-          key: 'id'
-        },
-        allowNull: false
       }
     });
   },

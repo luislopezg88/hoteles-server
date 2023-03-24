@@ -16,15 +16,7 @@ module.exports = {
         type: Sequelize.STRING
       },
       dniTypeId: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: {
-            tableName: 'dni_types',
-            schema: 'schema'
-          },
-          key: 'id'
-        },
-        allowNull: false
+        type: Sequelize.INTEGER
       },
       email: {
         type: Sequelize.STRING
