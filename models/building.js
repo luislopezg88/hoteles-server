@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      models.Building.hasMany(models.Room, {});
+      models.Building.hasMany(models.Room, { });
       models.Building.hasMany(models.File, {
         foreignKey: 'entityId',
         constraints: false,

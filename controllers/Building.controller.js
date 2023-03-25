@@ -1,93 +1,74 @@
 const models = require("../models/index");
-const Building = models.Buildings;
+const Building = models.Building;
 
 // Find all Buildings
-exports.findAll = (req, res) => {
+exports.findAll = async (req, res) => {
   try {
-    Building.findAll({
+    const rows = await Building.findAll({
       include: [
-        {model: models.Room, as: 'rooms'},
+        {model: models.Room },
       ],
-    }).then((rows) => {
-      res.send(rows);
     });
+    res.send(rows);
   } catch (error) {
+    console.log(error)
     res.status(400).json({ message: "Error de Servidor", success: false });
   }
 };
 // Find a Building by Id
-exports.findById = (req, res) => {
+exports.findById = async (req, res) => {
   try {
-    Building.findByPk(req.params.id, {
+    const row = await Building.findByPk(req.params.id, {
       include: [
-        {model: models.Room, as: 'rooms'}
+        {model: models.Room}
       ],
-    }).then((rows) => {
-      res.send(rows);
     });
+    res.send(row)
   } catch (error) {
     res.status(400).json({ message: "Error de Servidor", success: false });
   }
 };
 // Update a Building
-exports.update = (req, res) => {
+exports.update = async(req, res) => {
   const id = req.params.id;
   try {
-    Building.update(
-      {
-        code: req.body.code,
-        address: req.body.address,
-        rooms: req.body.Area,
-        status: req.body.status
-      },
-      {
-        where: { id },
-      }
-    ).then(() => {
-      res.status(200).send("updated successfully a Building with id = " + id);
-    });
+    await Building.update({
+      code: req.body.code,
+      address: req.body.address,
+      rooms: req.body.Area,
+      status: req.body.status
+    },
+    {
+      where: { id },
+    })
+    res.status(200).send("updated successfully a Building with id = " + id);
   } catch (error) {
     res.status(400).json({ message: "Error de Servidor", success: false });
   }
 };
 // Create a Building
-exports.create = (req, res) => {
+exports.create = async(req, res) => {
   try {
-    Building.create({
+    const row = await Building.create({
       code: req.body.code,
 			address: req.body.address,
-			rooms: req.body.Area,
+			rooms: req.body.rooms,
 			status: req.body.status
-    })
-      .then((row) => {
-        res.send(bank);
-      })
-      .catch((row) => {
-        res.status(500).send({
-          message:
-            err.message || "Some error occurred while creating the Building.",
-        });
-      });
+    });
+    res.send(row); 
   } catch (error) {
+    console.log(error)
     res.status(400).json({ message: "Error de Servidor", success: false });
   }
 };
 // Delete a Building
-exports.delete = (req, res) => {
+exports.delete = async(req, res) => {
   const id = req.params.id;
   try {
-    Building.destroy({
+    await Building.destroy({
       where: { id },
-    })
-      .then(() => {
-        res.status(200).send("deleted successfully a Building with id = " + id);
-      })
-      .catch((err) => {
-        res.status(500).send({
-          message:
-            err.message || "Some error occurred while deleted the Building.",
-        });
-      });
+    });
+    res.status(200).send("deleted successfully a Building with id = " + id);
   } catch (error) {
     res.status(400).json({ message: "Error de Servidor", success: false });
   }

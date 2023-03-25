@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      models.BusinessType.hasMany(models.Guest, {});
+      models.DniType.hasMany(models.Guest, {});
     }
   }
   DniType.init({
