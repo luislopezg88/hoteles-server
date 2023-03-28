@@ -24,6 +24,9 @@ module.exports = {
       status: {
         type: Sequelize.BOOLEAN,
         defaultValue: true,
+      },
+      rolId: {
+        type: Sequelize.STRING
       }
     });
   },
