@@ -5,4 +5,5 @@ module.exports = function (app) {
 	app.get("/api/buildings/:id", buildingController.findById);
 	app.put("/api/buildings/:id", buildingController.update);
 	app.delete("/api/buildings/:id", buildingController.delete);
+
 };

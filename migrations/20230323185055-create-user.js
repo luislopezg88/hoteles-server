@@ -18,6 +18,9 @@ module.exports = {
       password: {
         type: Sequelize.STRING
       },
+      rol: {
+        type: Sequelize.NUMBER
+      },
       status: {
         type: Sequelize.BOOLEAN,
         defaultValue: true,

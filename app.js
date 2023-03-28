@@ -20,6 +20,7 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 require("./routes/buildings.routes")(app);
+require("./routes/users.routes")(app);
 
 server.listen(PORT, function () {
   console.log(`App listening on port ${PORT}!`);
