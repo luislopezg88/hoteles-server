@@ -19,7 +19,7 @@ module.exports = (sequelize, DataTypes) => {
     email: DataTypes.STRING,
     password: DataTypes.STRING,
     status: DataTypes.BOOLEAN,
-    rolId: {
+    RoleId: {
       type: DataTypes.INTEGER,
       references: {
         model: 'Role',
@@ -29,6 +29,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'User',
+    tableName: "users",
     timestamps: false
   });
   return User;

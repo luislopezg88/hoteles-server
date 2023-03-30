@@ -5,7 +5,7 @@ module.exports = {
   up: (queryInterface, DataTypes) => Promise.resolve()
   .then(() => queryInterface.addConstraint('booking_guests', {
     type: 'foreign key',
-    fields: ['bookingId'],
+    fields: ['BookingId'],
     name: 'booking_guest_booking',
     references: {
       table: 'bookings',
@@ -14,7 +14,7 @@ module.exports = {
   }))
   .then(() => queryInterface.addConstraint('booking_guests', {
     type: 'foreign key',
-    fields: ['guestId'],
+    fields: ['GuestId'],
     name: 'booking_guest_guest',
     references: {
       table: 'guests',
@@ -25,7 +25,7 @@ module.exports = {
   down: (queryInterface, Sequelize) => Promise.resolve()
   .then(() => queryInterface.removeConstraint('booking_guests', {
     type: 'foreign key',
-    fields: ['bookingId'],
+    fields: ['BookingId'],
     name: 'booking_guest_booking',
     references: {
       table: 'bookings',
@@ -34,7 +34,7 @@ module.exports = {
   }))
   .then(() => queryInterface.removeConstraint('booking_guests', {
     type: 'foreign key',
-    fields: ['guestId'],
+    fields: ['GuestId'],
     name: 'booking_guest_guest',
     references: {
       table: 'guests',

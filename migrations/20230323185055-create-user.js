@@ -22,8 +22,9 @@ module.exports = {
         type: Sequelize.BOOLEAN,
         defaultValue: true,
       },
-      rolId: {
-        type: Sequelize.STRING
+      RoleId: {
+        type: Sequelize.INTEGER,
+        allowNull: false
       }
     });
   },

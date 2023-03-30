@@ -12,18 +12,18 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       models.File.belongsTo(models.Building, { 
-        foreignKey: 'entityId', 
+        foreignKey: 'EntityId', 
         constraints: false 
       });
       models.File.belongsTo(models.Room, { 
-        foreignKey: 'entityId', 
+        foreignKey: 'EntityId', 
         constraints: false 
       });
     }
   }
   File.init({
     url: DataTypes.STRING,
-    entityId: DataTypes.INTEGER,
+    EntityId: DataTypes.INTEGER,
     entityName: DataTypes.STRING
   }, {
     sequelize,

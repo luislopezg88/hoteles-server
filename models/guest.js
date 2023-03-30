@@ -14,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
       models.Guest.belongsTo(models.DniType, {});
       models.Guest.belongsToMany(models.Booking, { 
         through: 'BookingGuest', 
-        foreignKey: 'guestId',
+        foreignKey: 'GuestId',
         as: 'bookings' 
       });
     }
@@ -22,7 +22,7 @@ module.exports = (sequelize, DataTypes) => {
   Guest.init({
     fullNames: DataTypes.STRING,
     dni: DataTypes.STRING,
-    dniTypeId: {
+    DniTypeId: {
       type: DataTypes.INTEGER,
       references: {
         model: 'DniType', 

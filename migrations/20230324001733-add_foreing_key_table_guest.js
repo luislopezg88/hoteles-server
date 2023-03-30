@@ -5,7 +5,7 @@ module.exports = {
   async up (queryInterface, Sequelize) {
     queryInterface.addConstraint('guest', {
       type: 'foreign key',
-      fields: ['dniTypeId'],
+      fields: ['DniTypeId'],
       name: 'dni_types_guest',
       references: {
         table: 'dni_types',
@@ -19,7 +19,7 @@ module.exports = {
   async down (queryInterface, Sequelize) {
     queryInterface.removeConstraint('guest', {
       type: 'foreign key',
-      fields: ['dniTypeId'],
+      fields: ['DniTypeId'],
       name: 'dni_types_guest',
       references: {
         table: 'dni_types',

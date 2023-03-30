@@ -15,11 +15,11 @@ module.exports = (sequelize, DataTypes) => {
       models.Room.belongsTo(models.Building);
       models.Room.belongsToMany(models.Booking, { 
         through: 'BookingRoom', 
-        foreignKey: 'roomId',
+        foreignKey: 'RoomId',
         as: 'bookings' 
       });
       models.Room.hasMany(models.File, {
-        foreignKey: 'entityId',
+        foreignKey: 'EntityId',
         constraints: false,
         scope: {
           entityName: 'Room'
@@ -34,14 +34,14 @@ module.exports = (sequelize, DataTypes) => {
     address: DataTypes.STRING,
     people: DataTypes.INTEGER,
     status: DataTypes.BOOLEAN,
-    roomTypeId: {
+    RoomTypeId: {
       type: DataTypes.INTEGER,
       references: {
         model: 'RoomType',
         key: 'id'
       }
     },
-    buildingId: {
+    BuildingId: {
       type: DataTypes.INTEGER,
       references: {
         model: 'Building',

@@ -28,7 +28,7 @@ module.exports = {
       status: {
         type: Sequelize.BOOLEAN
       },
-      roomTypeId: {
+      RoomTypeId: {
         type: Sequelize.INTEGER,
       },
       buildingId: {

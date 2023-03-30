@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       models.Building.hasMany(models.Room, { });
       models.Building.hasMany(models.File, {
-        foreignKey: 'entityId',
+        foreignKey: 'EntityId',
         constraints: false,
         scope: {
           entityName: 'Building'

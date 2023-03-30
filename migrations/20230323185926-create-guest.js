@@ -15,7 +15,7 @@ module.exports = {
       dni: {
         type: Sequelize.STRING
       },
-      dniTypeId: {
+      DniTypeId: {
         type: Sequelize.INTEGER
       },
       email: {

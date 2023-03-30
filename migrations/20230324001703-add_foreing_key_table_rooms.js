@@ -5,7 +5,7 @@
 module.exports = {
   up: (queryInterface, DataTypes) => Promise.resolve()
   .then(() => queryInterface.addConstraint('rooms', {
-    fields: ['roomTypeId'],
+    fields: ['RoomTypeId'],
     type: 'foreign key',
     name: 'room_types_room',
     references: {
@@ -16,7 +16,7 @@ module.exports = {
     onUpdate: 'cascade'
   }))
   .then(() => queryInterface.addConstraint('rooms', {
-    fields: ['buildingId'],
+    fields: ['BuildingId'],
     type: 'foreign key',
     name: 'building_room',
     references: {
@@ -29,7 +29,7 @@ module.exports = {
 
   down: (queryInterface, Sequelize) => Promise.resolve()
   .then(() => queryInterface.removeConstraint('rooms', {
-    fields: ['roomTypeId'],
+    fields: ['RoomTypeId'],
     type: 'foreign key',
     name: 'room_types_room',
     references: {
@@ -38,7 +38,7 @@ module.exports = {
     }
   }))
   .then(() => queryInterface.removeConstraint('rooms', {
-    fields: ['buildingId'],
+    fields: ['BuildingId'],
     type: 'foreign key',
     name: 'building_room',
     references: {

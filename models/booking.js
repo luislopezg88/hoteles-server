@@ -13,13 +13,13 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       models.Booking.belongsToMany(models.Guest, { 
         through: 'BookingGuest', 
-        foreignKey: 'bookingId',
+        foreignKey: 'BookingId',
         as: 'guests' 
       });
       
       models.Booking.belongsToMany(models.Room, { 
         through: 'BookingRoom', 
-        foreignKey: 'bookingId',
+        foreignKey: 'BookingId',
         as: 'rooms' 
       });
     }

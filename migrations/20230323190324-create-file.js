@@ -12,7 +12,7 @@ module.exports = {
       url: {
         type: Sequelize.STRING
       },
-      entityId: {
+      EntityId: {
         type: Sequelize.INTEGER
       },
       entityName: {
