@@ -17,7 +17,7 @@ exports.findAll = async (req, res) => {
   try {
     const rows = await User.findAll({
       include: [
-        {model: models.Room },
+        {model: models.Role },
       ],
     });
     res.send(rows);
