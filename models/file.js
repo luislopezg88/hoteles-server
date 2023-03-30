@@ -28,7 +28,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'File',
-    tableName: "dni_types",
+    tableName: "files",
     timestamps: false,
   });
   return File;
