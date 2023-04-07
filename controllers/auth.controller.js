@@ -26,7 +26,7 @@ exports.signup = async (req, res) => {
 
 		res.status(200).send({
 			id: user.id,
-			userName: user.username,
+			userName: user.userName,
 			email: user.email,
 			status: user.status,
 			RoleId: user.RoleId,
@@ -44,7 +44,7 @@ exports.signin = async(req, res) => {
 
 	try {
 		const user = await User.findOne({
-			where: {userName: req.body.userName},
+			where: {email: req.body.email},
 			include: [
 				{model: Role },
 			],
@@ -69,7 +69,7 @@ exports.signin = async(req, res) => {
 		});
 		res.status(200).send({
 			id: user.id,
-			userName: user.username,
+			userName: user.userName,
 			email: user.email,
 			status: user.status,
 			RoleId: user.RoleId,

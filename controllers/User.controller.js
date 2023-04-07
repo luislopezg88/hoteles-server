@@ -34,7 +34,7 @@ exports.create = async(req, res) => {
             userName: req.body.userName,
             email: req.body.email,
             password: bcrypt.hashSync(req.body.password, 10) ,
-            status: req.body.status
+            status: req.body.status,
       });
       res.send(row); 
     } catch (error) {
