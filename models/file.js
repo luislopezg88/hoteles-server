@@ -24,7 +24,8 @@ module.exports = (sequelize, DataTypes) => {
   File.init({
     url: DataTypes.STRING,
     EntityId: DataTypes.INTEGER,
-    entityName: DataTypes.STRING
+    entityName: DataTypes.STRING,
+    isMain: DataTypes.BOOLEAN
   }, {
     sequelize,
     modelName: 'File',
