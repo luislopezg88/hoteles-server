@@ -20,7 +20,8 @@ exports.findById = async (req, res) => {
   try {
     const row = await Building.findByPk(req.params.id, {
       include: [
-        {model: models.Room}
+        {model: models.Room},
+        {model: models.File}
       ],
     });
     res.send(row)

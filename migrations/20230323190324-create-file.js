@@ -16,7 +16,7 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       entityName: {
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING
       }
     });
   },
